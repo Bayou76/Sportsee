@@ -1,0 +1,20 @@
+@import '../../sass/main.scss';
+
+.nav {
+    display: flex;
+    color: $color-primary;
+
+    &_list {
+        display: flex;
+        gap: 22rem;
+        font-size: 24px;
+        width: 100%;
+
+        @media screen and (max-width: 1700px) {
+            gap: 11rem;
+        }
+        @media screen and (max-width: 1200px) {
+            gap: 6rem;
+        }
+    }
+}

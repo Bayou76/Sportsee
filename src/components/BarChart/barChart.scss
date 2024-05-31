@@ -1,0 +1,23 @@
+@import '../../sass/main.scss';
+
+
+.barchart-container {
+    background-color: #FBFBFB;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 850px;
+}
+.barchart-title {
+    color: #20253A;
+    font-size: 15px;
+    margin-bottom: -22px;
+}
+
+.custom-tooltip {
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #E60000;
+    padding: 15px 10px;
+    outline: none;
+}

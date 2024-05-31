@@ -1,0 +1,84 @@
+@import '../../sass/main.scss';
+
+.user {
+  padding: 5% 0 0 10%;
+
+  .profile-content {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 15%;
+    @media screen and (max-width: 1400px) {
+      display:flex;
+      flex-direction: column;
+      margin-right: 3%;
+    }
+    .profile-main-content {
+      max-width: 1024px;
+      .profile-activity {
+        .profile-stats {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+        @media screen and (max-width: 1024px) {
+          max-width: 100%;
+        }
+      }
+
+      .profile-key-data {
+        width: 100%;
+        margin: 0 20px;
+        background-color: #FBFBFB;
+        border-radius: 5px;
+        padding: 30px 50px;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+
+        h2 {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #74798C;
+          margin-bottom: 10px;
+        }
+      }
+      
+    }
+    .key-data{
+      .keyInfo {
+        margin: 25px;
+      }
+      @media screen and (max-width: 1400px) {
+        display:flex;
+        margin: 10px 0 ;
+        .keyInfo {
+          margin: 0 20px;
+        }
+        
+        .keyInfo:first-child {
+          margin-left: 0;
+        }
+        
+        .keyInfo:last-child {
+          margin-right: 0;
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        .keyInfo {
+          margin: 0 10px;
+        }
+        
+        .keyInfo:first-child {
+          margin-left: 0;
+        }
+        
+        .keyInfo:last-child {
+          margin-right: 0;
+        }
+      }
+      
+    }
+  }
+}

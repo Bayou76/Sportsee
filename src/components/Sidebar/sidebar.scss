@@ -1,0 +1,37 @@
+@import '../../sass/main.scss';
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    top: 70px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-bg-primary;
+    color: $color-primary;
+    width: 80px;
+    height: 100%;
+    gap: 5rem;
+
+    &_nav{
+        &_list{
+            padding: 0;
+            li {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    img {
+        width: 50px;
+    }
+
+    &_footer {
+        display: flex;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: 12px;
+        transform: rotate(-180deg);
+        writing-mode: vertical-rl;
+    }
+}

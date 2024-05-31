@@ -1,0 +1,27 @@
+@import '../../sass/main.scss';
+
+.userChoose{
+    padding: 250px;
+    .lien-accueil {
+        display: block;
+        margin: auto;
+        text-decoration: none;
+    }
+    .btn-accueil {
+        background-color: $color-secondary;
+        border-color: transparent;
+        border-radius: 10px;
+        color: white;
+        margin: 20px auto;
+        padding: 15px 25px;
+        &:hover {
+            background-color: #020203;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+

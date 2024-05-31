@@ -1,0 +1,35 @@
+@import '../../sass/main.scss';
+
+.error {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	gap: 5px;
+	color: $color-secondary;
+	&_info {
+        margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		gap: 25px;
+		&_title {
+			font-weight: 700;
+			font-size: 200px;
+		}
+		&_content {
+			font-weight: 500;
+			font-size: 36px;
+			text-align: center;
+		}
+		&_return {
+			color: #000;
+			font-family: Montserrat;
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 142.6%;
+			text-decoration-line: underline;
+		}
+	}
+}
