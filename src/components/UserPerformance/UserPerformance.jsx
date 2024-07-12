@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import "./radarChart.scss";
+import ChartDataFormatter from '../../services/classe'; 
 
 const kind = [ 'Cardio','Énergie','Endurance','Force', 'Vitesse','Intensité'];
 
@@ -11,15 +13,8 @@ function UserPerformance({ performanceData }) {
     return <p>Aucune donnée de performance disponible.</p>;
   }
 
-  const chartData = performanceData.data.map(item => {
-    const subject = kind[item.kind - 1];
-    return {
-      subject: subject,
-      value: item.value
-    };
-  });
 
-  const reversedChartData = chartData.reverse();
+  const reversedChartData = ChartDataFormatter.formatPerformanceData(performanceData.data, kind);
 
   return (
     <div className='radar-container'>
@@ -43,5 +38,13 @@ function UserPerformance({ performanceData }) {
     </div>
   );
 }
+UserPerformance.propTypes = {
+  performanceData: PropTypes.shape({
+    data: PropTypes.arrayOf(PropTypes.shape({
+      kind: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired,
+    })).isRequired,
+  }).isRequired,
+};
 
 export default UserPerformance;

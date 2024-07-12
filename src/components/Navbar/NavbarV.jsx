@@ -5,35 +5,6 @@ import LogoCycle from '../../assets/cycle.png'
 import LogoDumbbell from '../../assets/dumbbell.png'
 import './navbar.scss'
 
-function HorizontalNav() {
-    return (
-        <nav className='nav'>
-            <ul className='nav_list'>
-                <li className='nav_list_item'>
-                    <Link  to='/SportSee'>
-                        Accueil
-                    </Link>
-                </li>
-                <li className='nav_list_item'>
-                    <Link  to='/profile'>
-                       Profil
-                    </Link>
-                </li>
-                <li className='nav_list_item'>
-                    <Link  to='/setting'>
-                       Réglage
-                    </Link>
-                </li>
-                <li className='nav_list_item'>
-                    <Link  to='/community'>
-                       Communauté
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-    )
-}
-
 function VerticalNav() {
     return (
             <nav className='sidebar_nav'>
@@ -63,9 +34,6 @@ function VerticalNav() {
     )
 }
 
-const Nav = {
-    HorizontalNav,
-    VerticalNav
-}
 
-export default Nav
+
+export default VerticalNav

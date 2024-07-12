@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Welcome from "../../components/Welcome/Welcome";
-import UserActivity from "../../components/BarChart/BarChart";
-import UserSessionDuration from "../../components/LineChart/LineChart";
-import UserPerformance from '../../components/RadarChart/RadarChart';
-import UserScoreRadialBarChart from '../../components/RadialBarChart/RadialBarChart';
+import UserActivity from "../../components/UserActivity/UserActivity";
+import UserSessionDuration from "../../components/UserSessionDuration/UserSessionDuration";
+import UserPerformance from '../../components/UserPerformance/UserPerformance';
+import UserScoreRadialBarChart from '../../components/UserScoreRadialBarChart/UserScoreRadialBarChart';
 import apiFetch from "../../services/apiFetch";
+import apiFetchMock from "../../services/apiFetchMock"; // Importer l'API simulée
 import Error from "../Error/Error";
 import KeyInfo from '../../components/KeyInfo/KeyInfo';
 import calories from '../../assets/calories-icon.png';
@@ -27,20 +28,24 @@ function Profile() {
   const [userSessionsPerformance, setUserSessionsPerformance] = useState(null);
   const [error, setError] = useState(false);
 
+  // Définir un true ou false pour utiliser l'API simulée ou l'API réelle
+  const useMock = false;
+  const api = useMock ? apiFetchMock : apiFetch; 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userDataResponse = await apiFetch.fetchUserData(userId);
+        const userDataResponse = await api.fetchUserData(userId);
         setUserData(userDataResponse.data);
 
-        const activityResponse = await apiFetch.fetchUserActivity(userId);
+        const activityResponse = await api.fetchUserActivity(userId);
         setUserSessionsActivity(activityResponse.data.sessions);
 
-        const durationResponse = await apiFetch.fetchAverageSessionDuration(userId);
+        const durationResponse = await api.fetchAverageSessionDuration(userId);
         console.log('Session Duration:', durationResponse); 
         setUserSessions(durationResponse.data.sessions); 
 
-        const performanceResponse = await apiFetch.fetchPerformance(userId);
+        const performanceResponse = await api.fetchPerformance(userId);
         console.log('User Performance:', performanceResponse);
         setUserSessionsPerformance(performanceResponse.data); 
 
@@ -51,8 +56,7 @@ function Profile() {
     };
 
     fetchData();
-  }, [userId]);
-
+  }, [userId, api]); 
 
   if (error) {
     return <Error />;

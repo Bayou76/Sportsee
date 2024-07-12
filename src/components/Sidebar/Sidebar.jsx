@@ -1,10 +1,10 @@
-import Nav from '../Navbar/Navbar'
+import VerticalNav from '../Navbar/NavbarV'
 import './sidebar.scss'
 
 function Sidebar() {
     return (
        <aside className='sidebar'>
-        <Nav.VerticalNav/>
+        <VerticalNav/>
         <footer className='sidebar_footer'>
                 <p>Copiryght, SportSee 2020</p>
             </footer>

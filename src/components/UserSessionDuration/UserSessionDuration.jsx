@@ -1,13 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import DataFormatter from '../../services/classe';
 import "./lineChart.scss";
 
 function UserSessionDuration({ userSessions }) {
-  const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-  const chartData = userSessions.map((session, index) => ({
-    day: daysOfWeek[index],
-    sessionLength: session.sessionLength
-  }));
+  const chartData = DataFormatter.formatSessionData(userSessions);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -64,5 +62,12 @@ function UserSessionDuration({ userSessions }) {
     </div>
   );
 }
+
+UserSessionDuration.propTypes = {
+  userSessions: PropTypes.arrayOf(
+    PropTypes.shape({
+    sessionLength: PropTypes.number.isRequired,
+  })).isRequired,
+};
 
 export default UserSessionDuration;

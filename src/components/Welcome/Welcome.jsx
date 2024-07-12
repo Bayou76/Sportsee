@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import "./welcome.scss"
 
 const Welcome = ({ name }) => {
@@ -9,5 +10,9 @@ const Welcome = ({ name }) => {
         </div>
     );
 }
+
+Welcome.propTypes = {
+    name: PropTypes.string.isRequired, 
+};
 
 export default Welcome;

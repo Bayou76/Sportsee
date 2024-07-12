@@ -1,31 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import "./barChart.scss";
+import DataFormatter from '../../services/classe';
 
 function UserActivity({ userSessionsActivity }) {
-  // Définir les données pour le graphique à barres
-  const chartData = userSessionsActivity.map((session, index) => ({
-    day: index + 1,
-    kilogram: session.kilogram,
-    calories: session.calories
-  }));
+  // Appel de la méthode de formatage pour obtenir les données formatées
+  const chartData = DataFormatter.formatUserActivityData(userSessionsActivity);
 
   // Fonction pour personnaliser le Tooltip
   const CustomTooltip = ({ active, payload }) => {
-    if (active) {
+    if (active && payload && payload.length) {
       return (
         <div className='custom-tooltip'>
-          <p>{payload[0].value}kg</p>
-          <p>{payload[1].value}Kcal</p>
+          <p>{payload[0].value} kg</p>
+          <p>{payload[1].value} kCal</p>
         </div>
-
       );
     }
-
     return null;
   };
-
-  
 
   return (
     <>
@@ -52,5 +46,14 @@ function UserActivity({ userSessionsActivity }) {
     </>
   );
 }
+UserActivity.propTypes = {
+  userSessionsActivity: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 export default UserActivity;

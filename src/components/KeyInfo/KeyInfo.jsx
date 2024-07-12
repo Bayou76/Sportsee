@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import './keyInfo.scss';
 import './keyInfo.scss'
 
 function KeyInfoItem({ label, value, unit, icon }) {
@@ -11,5 +14,11 @@ function KeyInfoItem({ label, value, unit, icon }) {
         </div>
     );
 }
+KeyInfoItem.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    unit: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+};
 
 export default KeyInfoItem;

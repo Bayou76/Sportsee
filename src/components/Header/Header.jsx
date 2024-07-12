@@ -1,4 +1,4 @@
-import Nav from '../Navbar/Navbar'
+import HorizontalNav from '../Navbar/NavbarH'
 import Logo from '../../assets/logo.png'
 import './header.scss'
 
@@ -8,7 +8,7 @@ function Header() {
             <h1>
                 <img src={Logo} alt="app Coaching Sportif, SportSee" />
             </h1>
-            <Nav.HorizontalNav />
+            <HorizontalNav />
         </header>
     )
 }

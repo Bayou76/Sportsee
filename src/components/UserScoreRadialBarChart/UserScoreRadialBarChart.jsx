@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import './radialBarChart.scss';
 
@@ -55,5 +56,9 @@ const UserScoreRadialBarChart = ({ score }) => {
         </div>
     );
 }
+
+UserScoreRadialBarChart.propTypes = {
+    score: PropTypes.number.isRequired,
+};
 
 export default UserScoreRadialBarChart;
